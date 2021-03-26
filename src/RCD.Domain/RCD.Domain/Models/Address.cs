@@ -1,4 +1,5 @@
 ﻿using RCD.Core.DomainObjects;
+using RCD.Domain.Models.Validations;
 using System.Collections.Generic;
 
 namespace RCD.Domain.Models
@@ -26,6 +27,12 @@ namespace RCD.Domain.Models
             City = city;
             State = state;
             Country = country;
+        }
+
+        public override bool IsValid()
+        {
+            ValidationResult = new AddressValidation().Validate(this);
+            return ValidationResult.IsValid;
         }
     }
 }

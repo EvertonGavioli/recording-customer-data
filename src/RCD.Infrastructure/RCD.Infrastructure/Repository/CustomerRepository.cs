@@ -61,7 +61,7 @@ namespace RCD.Infrastructure.Repository
 
         public void Update(Customer customer)
         {
-            _context.Update(customer);
+            _context.Update (customer);
         }
 
         public void Delete(Customer customer)
@@ -85,6 +85,7 @@ namespace RCD.Infrastructure.Repository
         {
             _context.Remove(address);
         }
+
         public async Task<IEnumerable<Address>> SearchAddress(Expression<Func<Address, bool>> predicate)
         {
             return await _context.Addresses.AsNoTracking().Where(predicate).ToListAsync();

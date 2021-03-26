@@ -70,6 +70,11 @@ namespace RCD.Domain.Services
                 DeleteCustomerPhone(phone);
             }
 
+            foreach (var address in customer.Addresses)
+            {
+                DeleteCustomerAddress(address);
+            }
+
             _customerRepository.Delete(customer);
 
             return await _customerRepository.UnitOfWork.Commit();
@@ -237,6 +242,5 @@ namespace RCD.Domain.Services
         {
             _customerRepository?.Dispose();
         }
-
     }
 }

@@ -87,7 +87,7 @@ namespace RCD.API.Controllers
         #region Phones
 
         [HttpPost("{customerId:guid}/phones")]
-        public async Task<ActionResult<IEnumerable<CustomerViewModel>>> AddPhone(Guid customerId, PhoneViewModel phoneViewModel)
+        public async Task<ActionResult<CustomerViewModel>> AddPhone(Guid customerId, PhoneViewModel phoneViewModel)
         {
             var customer = await _customerRepository.GetByIdWithPhonesAndAddresses(customerId);
 
@@ -99,7 +99,7 @@ namespace RCD.API.Controllers
         }
 
         [HttpDelete("{customerId:guid}/phones/{phoneId:guid}")]
-        public async Task<ActionResult<IEnumerable<CustomerViewModel>>> DeletePhone(Guid customerId, Guid phoneId)
+        public async Task<ActionResult<CustomerViewModel>> DeletePhone(Guid customerId, Guid phoneId)
         {
             var customer = await _customerRepository.GetByIdWithPhonesAndAddresses(customerId);
 
@@ -115,7 +115,7 @@ namespace RCD.API.Controllers
         #region Addresses
 
         [HttpPost("{customerId:guid}/addresses")]
-        public async Task<ActionResult<IEnumerable<CustomerViewModel>>> AddAddress(Guid customerId, AddressViewModel addressViewModel)
+        public async Task<ActionResult<CustomerViewModel>> AddAddress(Guid customerId, AddressViewModel addressViewModel)
         {
             var customer = await _customerRepository.GetByIdWithPhonesAndAddresses(customerId);
 
@@ -127,7 +127,7 @@ namespace RCD.API.Controllers
         }
 
         [HttpDelete("{customerId:guid}/addresses/{addressId:guid}")]
-        public async Task<ActionResult<IEnumerable<CustomerViewModel>>> DeleteAddress(Guid customerId, Guid addressId)
+        public async Task<ActionResult<CustomerViewModel>> DeleteAddress(Guid customerId, Guid addressId)
         {
             var customer = await _customerRepository.GetByIdWithPhonesAndAddresses(customerId);
 

@@ -1,4 +1,6 @@
-﻿using System;
+﻿using FluentValidation.Results;
+using System;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace RCD.Core.DomainObjects
 {
@@ -9,6 +11,14 @@ namespace RCD.Core.DomainObjects
             Id = new Guid();
         }
 
-        public Guid Id { get; set; }
+        public Guid Id { get; protected set; }
+
+        [NotMapped]
+        public ValidationResult ValidationResult { get; protected set; }
+
+        public virtual bool IsValid()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

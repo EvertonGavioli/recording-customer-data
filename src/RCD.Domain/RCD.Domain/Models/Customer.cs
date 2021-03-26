@@ -1,5 +1,6 @@
 ﻿
 using RCD.Core.DomainObjects;
+using RCD.Domain.Models.Validations;
 using System;
 using System.Collections.Generic;
 
@@ -18,7 +19,7 @@ namespace RCD.Domain.Models
 
         public Customer(Guid id, string name, string email)
         {
-            Id = id; ;
+            Id = id;
             Name = name;
             Email = new Email(email);
 
@@ -44,6 +45,12 @@ namespace RCD.Domain.Models
         public void ChangeEmail(string newEmail)
         {
             Email = new Email(newEmail);
+        }
+
+        public override bool IsValid()
+        {
+            ValidationResult = new CustomerValidation().Validate(this);
+            return ValidationResult.IsValid;
         }
     }
 }

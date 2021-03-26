@@ -1,8 +1,5 @@
 ﻿using FluentValidation;
 using RCD.Core.DomainObjects;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace RCD.Domain.Models.Validations
 {
@@ -27,5 +24,5 @@ namespace RCD.Domain.Models.Validations
                     .WithMessage("O Telefone informado é inválido");
             });
         }
-}
+    }
 }

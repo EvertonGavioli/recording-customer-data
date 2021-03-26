@@ -34,9 +34,9 @@ namespace RCD.API
             services.AddDbContext<ApplicationDbContext>(options =>
             {
                 options
-                .UseSqlServer(Configuration.GetConnectionString("DefaultConnection"))
-                .EnableSensitiveDataLogging()
-                .LogTo(Console.WriteLine, LogLevel.Information);
+                .UseSqlServer(Configuration.GetConnectionString("DefaultConnection"));
+                //.EnableSensitiveDataLogging()
+                //.LogTo(Console.WriteLine, LogLevel.Information);
             });
 
             services.AddAutoMapper(typeof(Startup));
